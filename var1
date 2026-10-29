@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] matrix =
+        {
+            { 12, 14, 11, 15 },
+            { 8, 10, 6, 9 },
+            { 20, 22, 19, 25 },
+            { 5, 7, 4, 6 }
+        };
+
+        int n = matrix.GetLength(0);
+        int mainSum = 0;
+        int secondarySum = 0;
+
+        Console.WriteLine("Початкова матриця:");
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+                Console.Write($"{matrix[i, j],4}");
+
+            Console.WriteLine();
+        }
+
+        for (int i = 0; i < n; i++)
+        {
+            mainSum += matrix[i, i];
+            secondarySum += matrix[i, n - 1 - i];
+        }
+
+        Console.WriteLine($"Сума головної діагоналі: {mainSum}");
+        Console.WriteLine($"Сума побічної діагоналі: {secondarySum}");
+    }
+}
